@@ -1,14 +1,7 @@
-import PropTypes from 'prop-types';
-import { FieldLayout } from './field-layout.jsx';
-import { PLAYER } from '../../constants';
+import { store } from '../../store';
+import { FieldLayout } from './field-layout';
 
-export const Field = ({ field, handleCellClick }) => {
+export const Field = ({ handleCellClick }) => {
+	const { field } = store.getState();
 	return <FieldLayout field={field} handleCellClick={handleCellClick} />;
-};
-
-Field.propTypes = {
-	field: PropTypes.arrayOf(
-		PropTypes.oneOf([PLAYER.CROSS, PLAYER.NOUGHT, PLAYER.NOBODY]),
-	),
-	handleCellClick: PropTypes.func,
 };
